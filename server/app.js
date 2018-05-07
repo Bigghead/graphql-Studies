@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express        = require('express');
 const expressGraphQL = require('express-graphql');
 const mongoose       = require('mongoose');
@@ -7,8 +8,7 @@ const RootQuery      = require('./graphql/rootQuery');
 
 const app            = express();
 
-
-mongoose.connect('mongodb://bigghead:hello@ds217350.mlab.com:17350/graphql-tuts');
+mongoose.connect(process.env.DB_URL);
 
 
 const books = [
